@@ -105,24 +105,17 @@ Experiment_data_merged
 # Data analysis, Research question 1, informal message
 
 Experiment_data_merged %>% 
-  mutate(group = case_when(control_condition == 1 ~ "control",
-                           info_condition == 1 ~ "info_condtion")) %>% 
-  group_by(group) %>%
-  mutate(x = (applied == 1),y = applied != 1) 
-  summarise(sum(x,na.rm = TRUE),sum(y, na.rm = TRUE), n())
-  
-  
-  Experiment_data_merged %>% 
-    mutate(X = case_when(applied == 1 ~ 1,
-                         TRUE ~ 0)) %>% 
-    sum(X, na.rm=TRUE)
-  
-  
+  mutate(group = case_when(applied == 1 ~ "applied",
+                             TRUE ~ "did not apply")) %>% 
+  group_by(group,control_condition, info_condition, norms_condition) %>% 
+  summarise(n())
+
+
+Experiment_data_merged
+
 
 
   
-
-
 
 ```
 
