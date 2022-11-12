@@ -1,0 +1,108 @@
+---
+title: "Data_task"
+author: "VJ"
+date: "11 November 2022"
+output: html_document
+---
+
+
+
+
+
+```{r setup, include=FALSE, fig.height=3,fig.height=3, fig.align='left'}
+# loading packages
+options(Encoding="UTF-8")
+knitr::opts_chunk$set(message = FALSE)
+
+library(readr)
+library(lubridate)
+
+library(data.table)
+library(hablar)
+library(tidyverse)
+library(selectr)
+library(readxl)
+library(rjson)
+
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+library(parameters)
+library(gt)
+
+library(htmltools)
+
+library(magrittr)
+library(knitr)
+library(compareDF)
+library(arsenal)
+
+
+theme_set(theme_bw())
+library("sf")
+
+
+library("rnaturalearth")
+library("rnaturalearthdata")
+library(rgeos)
+
+library(ggridges)
+
+library(devtools)
+
+library(kableExtra)
+
+library(stargazer)
+
+library (lubridate)
+
+library (scales)
+
+library(bbl)
+library(fitdistrplus)
+
+library(dplyr)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+# loading data
+Experiment_data <- read_csv("data/Experiment data.csv")
+County_1_data <- read_csv("data/County 1 data.csv")
+County_2_data <- read_csv("data/County 2 data.csv")
+```
+
+```{r}
+#converting County_2_data to same format as County_1_data using pivot_wider
+
+County_2_data_reformatted <-
+County_2_data %>% 
+  mutate(rn = rowid(student_id, variable)) %>%
+  pivot_wider(names_from = variable, values_from = value, 
+  values_fill = list(values = '0'))  %>% 
+  mutate(female = case_when(male == 1 ~ 0,
+                            male == 0 ~ 1))  %>% 
+  dplyr:: select(c(1,4,3, 7,6)) 
+
+  
+```
+```{r}
+# Combining County_1_data and County_2_data with Experiment_data using join
+
+County_2_data_reformatted 
+
+~
+
+Experiment_data
+
+Experiment_data %>% 
+  left_join(County_1_data, by = c('student_id', 'county')) %>% 
+  left_join(County_2_data_reformatted, by = c('student_id', 'county')) %>% 
+  mutate (age = coalesce(age.x, age.y)) %>% 
+  mutate(female = coalesce(female.x, female.y)) %>% 
+  mutate(race = coalesce (race.x, race.y)) %>% 
+  dplyr::select(c(1:2, 15:17,3:6))
+
+```
+

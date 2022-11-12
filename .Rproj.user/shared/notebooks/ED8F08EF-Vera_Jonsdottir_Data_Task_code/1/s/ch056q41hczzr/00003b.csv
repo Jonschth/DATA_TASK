@@ -1,0 +1,12 @@
+"0","#converting County_2_data to same format as County_1_data using pivot_wider"
+"0","County_2_data_reformatted <-"
+"0","County_2_data %>% "
+"0","  mutate(rn = rowid(student_id, variable)) %>%"
+"0","  pivot_wider(names_from = variable, values_from = value, "
+"0","  values_fill = list(values = '0'))  %>% "
+"0","  mutate(female = case_when(male == 1 ~ 0,"
+"0","                            male == 0 ~ 1))  %>% "
+"0","  dplyr:: select(c(1,4,3, 7,6)) %>% "
+"0","  "
+"2","Error: 
+"
