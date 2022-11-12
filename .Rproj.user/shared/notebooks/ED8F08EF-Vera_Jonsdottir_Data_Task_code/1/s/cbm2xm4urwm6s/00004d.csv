@@ -1,0 +1,8 @@
+"0","  Experiment_data_merged %>% 
+    mutate(X = case_when(applied == 1 ~ 1,
+                         TRUE ~ 0)) %>% 
+    sum(X, na.rm=TRUE)
+"
+"2","Error in Experiment_data_merged %>% mutate(X = case_when(applied == 1 ~  : 
+  object 'X' not found
+"

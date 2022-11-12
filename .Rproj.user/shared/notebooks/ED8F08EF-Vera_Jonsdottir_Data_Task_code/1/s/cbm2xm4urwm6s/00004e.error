@@ -1,0 +1,1 @@
+{"frames":[{"character_number":0,"end_character_number":0,"end_line_number":0,"file":"","func":"Experiment_data_merged %>% mutate(X = case_when(applied == 1 ~ \n    1, TRUE ~ 0)) %>% sum(X, na.rm = TRUE)","line_number":0}],"message":"Error in Experiment_data_merged %>% mutate(X = case_when(applied == 1 ~  : \n  object 'X' not found\n"}
