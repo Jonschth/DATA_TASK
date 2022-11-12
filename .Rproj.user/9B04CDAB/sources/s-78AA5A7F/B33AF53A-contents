@@ -88,14 +88,10 @@ County_2_data %>%
 
   
 ```
+
 ```{r}
 # Combining County_1_data and County_2_data with Experiment_data using join
 
-County_2_data_reformatted 
-
-~
-
-Experiment_data
 
 Experiment_data %>% 
   left_join(County_1_data, by = c('student_id', 'county')) %>% 
