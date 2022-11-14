@@ -199,7 +199,92 @@ County_2_data_reformatted &lt;-
     values_fill = list(values = &#39;0&#39;))  %&gt;% 
     mutate(female = case_when(male == 1 ~ 0,
                               male == 0 ~ 1))  %&gt;% 
-    dplyr:: select(c(1,4,3, 7,6)) </code></pre>
+    dplyr:: select(c(1,4,3, 7,6)) 
+
+    knitr::kable(head(County_2_data_reformatted,10), format = &quot;pipe&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">student_id</th>
+<th align="right">county</th>
+<th align="right">age</th>
+<th align="right">female</th>
+<th align="right">race</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">33</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">37</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">36</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">37</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">24</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">2</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="right">27</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">2</td>
+<td align="right">31</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">2</td>
+<td align="right">30</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code># Combining County_1_data and County_2_data with Experiment_data using join
 
 Experiment_data_merged &lt;-
@@ -211,37 +296,310 @@ Experiment_data_merged &lt;-
     mutate(race = coalesce (race.x, race.y)) %&gt;% 
     dplyr::select(c(1:2, 15:17,3:8))
 
-    Experiment_data_merged</code></pre>
-<pre><code>## # A tibble: 62,775 x 11
-##    student_id county   age female  race university consent control_condition
-##         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;             &lt;dbl&gt;
-##  1          1      2    33      1     1          5       1                NA
-##  2          2      2    37      0     1          6       1                NA
-##  3          1      1    21      0     1          3       1                 1
-##  4          3      2    36      1     1          7       1                 1
-##  5          4      2    37      1     1          8       1                NA
-##  6          5      2    25      0     1          5       1                NA
-##  7          2      1    25      1     1          2       1                 1
-##  8          6      2    24      1     1          7       1                 1
-##  9          7      2    19      0     1          7       1                NA
-## 10          8      2    27      0     1          8       1                NA
-## # ... with 62,765 more rows, and 3 more variables: info_condition &lt;dbl&gt;,
-## #   norms_condition &lt;dbl&gt;, applied &lt;dbl&gt;</code></pre>
-<div id="i-have-designed-a-propportions-test-to-test-if-there-is-a-significant-difference-in-sending-out-different-messages." class="section level2">
-<h2>I have designed a propportions test to test if there is a significant difference in sending out different messages.</h2>
+    knitr::kable(head(Experiment_data_merged, 10),format = &quot;pipe&quot;)</code></pre>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="6%" />
+<col width="3%" />
+<col width="6%" />
+<col width="4%" />
+<col width="10%" />
+<col width="7%" />
+<col width="16%" />
+<col width="13%" />
+<col width="14%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">student_id</th>
+<th align="right">county</th>
+<th align="right">age</th>
+<th align="right">female</th>
+<th align="right">race</th>
+<th align="right">university</th>
+<th align="right">consent</th>
+<th align="right">control_condition</th>
+<th align="right">info_condition</th>
+<th align="right">norms_condition</th>
+<th align="right">applied</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">33</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">37</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">36</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">37</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">25</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">24</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">2</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="right">27</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<div id="i-have-designed-a-proportions-test-to-test-if-there-is-a-significant-difference-in-sending-out-different-messages." class="section level3">
+<h3>I have designed a proportions test to test if there is a significant difference in sending out different messages.</h3>
 <pre class="r"><code># Data analysis, Research questions 1$2, informal message &amp; social norms message
 summary_table &lt;-
   Experiment_data_merged %&gt;% 
     #filter(female == 1) %&gt;%
-    #filter(race ==1) %&gt;% 
-    #filter(county ==1) %&gt;% 
-    filter (age&gt;=21) %&gt;% 
+    filter(race == 1) %&gt;% 
+    #filter(county == 2) %&gt;% 
+    #filter (age&gt;=21) %&gt;% 
     mutate(group = case_when(applied == 1 ~ &quot;applied&quot;,
                                TRUE ~ &quot;did not apply&quot;)) %&gt;% 
     group_by(group,control_condition, info_condition, norms_condition) %&gt;% 
     summarise(n())
 
-# proportional test prepared
+knitr::kable(summary_table)</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+group
+</th>
+<th style="text-align:right;">
+control_condition
+</th>
+<th style="text-align:right;">
+info_condition
+</th>
+<th style="text-align:right;">
+norms_condition
+</th>
+<th style="text-align:right;">
+n()
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+applied
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1573
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+applied
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1632
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+applied
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1727
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+did not apply
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+9088
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+did not apply
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+8965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+did not apply
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9023
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># proportional test prepared
 control_applied &lt;- as.numeric(summary_table[1,5])
 control_not_apply &lt;- as.numeric(summary_table[4,5])
 n_control &lt;- control_applied + control_not_apply
@@ -262,13 +620,13 @@ result</code></pre>
 ##  2-sample test for equality of proportions with continuity correction
 ## 
 ## data:  c(control_applied, info_applied) out of c(n_control, n_info)
-## X-squared = 1.5156, df = 1, p-value = 0.1091
+## X-squared = 1.6814, df = 1, p-value = 0.09737
 ## alternative hypothesis: less
 ## 95 percent confidence interval:
-##  -1.00000000  0.00113426
+##  -1.000000000  0.001709012
 ## sample estimates:
-##     prop 1     prop 2 
-## 0.07612384 0.07955082</code></pre>
+##    prop 1    prop 2 
+## 0.1475471 0.1540059</code></pre>
 <pre class="r"><code># test for second research question
 result &lt;- prop.test(x = c(control_applied, norms_applied), n = 
                    c(n_control, n_norm), alternative = &#39;less&#39;,conf.level = 0.95)
@@ -277,13 +635,13 @@ result</code></pre>
 ##  2-sample test for equality of proportions with continuity correction
 ## 
 ## data:  c(control_applied, norms_applied) out of c(n_control, n_norm)
-## X-squared = 9.7015, df = 1, p-value = 0.0009206
+## X-squared = 6.95, df = 1, p-value = 0.004191
 ## alternative hypothesis: less
 ## 95 percent confidence interval:
-##  -1.000000000 -0.004086485
+##  -1.000000000 -0.004895413
 ## sample estimates:
-##     prop 1     prop 2 
-## 0.07612384 0.08483425</code></pre>
+##    prop 1    prop 2 
+## 0.1475471 0.1606512</code></pre>
 <pre class="r"><code># test for the third research question
 result &lt;- prop.test(x = c(info_applied, norms_applied), n = 
                    c(n_info, n_norm), alternative = &#39;less&#39;,conf.level = 0.95)
@@ -292,130 +650,158 @@ result</code></pre>
 ##  2-sample test for equality of proportions with continuity correction
 ## 
 ## data:  c(info_applied, norms_applied) out of c(n_info, n_norm)
-## X-squared = 3.465, df = 1, p-value = 0.03134
+## X-squared = 1.7276, df = 1, p-value = 0.09436
 ## alternative hypothesis: less
 ## 95 percent confidence interval:
-##  -1.0000000000 -0.0006092513
+##  -1.000000000  0.001646007
 ## sample estimates:
-##     prop 1     prop 2 
-## 0.07955082 0.08483425</code></pre>
+##    prop 1    prop 2 
+## 0.1540059 0.1606512</code></pre>
+<pre class="r"><code>control_applied</code></pre>
+<pre><code>## [1] 1573</code></pre>
+<pre class="r"><code>info_applied</code></pre>
+<pre><code>## [1] 1632</code></pre>
+<pre class="r"><code>norms_applied</code></pre>
+<pre><code>## [1] 1727</code></pre>
+<pre class="r"><code>n_control</code></pre>
+<pre><code>## [1] 10661</code></pre>
+<pre class="r"><code>n_info</code></pre>
+<pre><code>## [1] 10597</code></pre>
+<pre class="r"><code>n_norm</code></pre>
+<pre><code>## [1] 10750</code></pre>
+</div>
 <div id="the-results-from-the-first-test-show-that-the-null-hypotheses-is-accepted-as-p-value-0.05.-the-first-test-shows-that-it-there-is-not-a-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-informational-message-at-5-significance-level.-therefore-the-answer-to-research-question-1-is-no-more-students-do-not-apply-if-the-get-the-informational-message." class="section level3">
 <h3>The results from the first test show that the null hypotheses is accepted as p-value &gt; 0.05. The first test shows that it there is <em>not</em> a significant difference in proportion of applications from individuals in the control group and the group that got informational message at 5% significance level. Therefore the answer to research question 1 is no, more students do not apply if the get the informational message.</h3>
 </div>
-<div id="the-results-from-the-second-test-show-that-the-null-hypothesis-is-rejected-as-p-value-0.05.-there-is-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-social-norms-message-emails-at-5-significance-level.-therefore-the-answer-to-research-question-2-is-yes-more-students-apply-if-the-get-the-social-norms-message.-in-fact-we-could-have-tested-this-at-99-level-i.e.-.01." class="section level3">
-<h3>The results from the second test show that the null hypothesis is rejected as p-value &lt; 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 5% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. $= .01.</h3>
+<div id="the-results-from-the-second-test-show-that-the-null-hypothesis-is-rejected-as-p-value-0.05.-there-is-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-social-norms-message-emails-at-5-significance-level.-therefore-the-answer-to-research-question-2-is-yes-more-students-apply-if-the-get-the-social-norms-message.-in-fact-we-could-have-tested-this-at-99-level-i.e.-.01-and-would-have-gotten-the-same-message." class="section level3">
+<h3>The results from the second test show that the null hypothesis is rejected as p-value &lt; 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 5% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. $= .01 and would have gotten the same message.</h3>
 </div>
 <div id="the-results-from-the-third-test-show-that-the-null-hypothesis-is-rejected-as-the-p-value-0.05.-there-is-significance-difference-in-the-proportions-of-applications-from-individuals-that-got-the-informational-message-and-the-social-norms-message-at-5-significance-level.-therefore-the-answer-to-research-question-3-is-yes-more-students-apply-if-they-get-the-social-norms-message-than-students-that-get-the-informational-message." class="section level3">
 <h3>The results from the third test show that the null hypothesis is rejected as the p-value &lt; 0.05. There is significance difference in the proportions of applications from individuals that got the informational message and the social norms message at 5% significance level. Therefore the answer to research question 3 is yes, more students apply if they get the social norms message than students that get the informational message.</h3>
-<pre class="r"><code>columns = c(&#39;filter&#39;,&#39;question 1&#39;, &#39;question 2&#39;, &#39;question 3&#39;)
+<pre class="r"><code># table with answers to research questions when different filters have been applied.
+columns = c(&#39;filter&#39;,&#39;question 1&#39;, &#39;question 2&#39;, &#39;question 3&#39;)
 R1 = c(&#39;female = 1&#39;, &#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39;)
 R2 = c(&#39;  race = 1&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;No&#39; )
 R3 = c(&#39;county = 1&#39;,&#39;No&#39;, &#39;No&#39;, &#39;No&#39; )
-R4 = c(&#39;  age &gt; 21&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;No&#39; )
-R5 = c(&#39; age &gt;= 21&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39; )
+R4 = c(&#39;county = 2&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39; )
+R5 = c(&#39;  age &lt; 21&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;No&#39; )
+R6 = c(&#39; age &gt;= 21&#39;,&#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39; )
 
-table &lt;- as.data.frame(rbind(R1, R2, R3, R4, R5), stringsAsFactors = FALSE)
+table &lt;- as.data.frame(rbind(R1, R2, R3, R4, R5, R6), stringsAsFactors = FALSE)
 names(table) &lt;- columns
-
-
-knitr::kable(table, align=&quot;rccc&quot;, caption = &quot;Results from tests using different filters.&quot;, row.names = FALSE)</code></pre>
+knitr::kable(table, align=&quot;rccc&quot;, caption = &quot;Numbers for different races&quot;, row.names = FALSE, format = &quot;pipe&quot;)</code></pre>
 <table>
-<caption>
-Results from tests using different filters.
-</caption>
+<caption>Numbers for different races</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-filter
-</th>
-<th style="text-align:center;">
-question 1
-</th>
-<th style="text-align:center;">
-question 2
-</th>
-<th style="text-align:center;">
-question 3
-</th>
+<tr class="header">
+<th align="right">filter</th>
+<th align="center">question 1</th>
+<th align="center">question 2</th>
+<th align="center">question 3</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-female = 1
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-Yes
-</td>
-<td style="text-align:center;">
-Yes
-</td>
+<tr class="odd">
+<td align="right">female = 1</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-race = 1
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-Yes
-</td>
-<td style="text-align:center;">
-No
-</td>
+<tr class="even">
+<td align="right">race = 1</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="center">No</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-county = 1
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-No
-</td>
+<tr class="odd">
+<td align="right">county = 1</td>
+<td align="center">No</td>
+<td align="center">No</td>
+<td align="center">No</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-age &gt; 21
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-Yes
-</td>
-<td style="text-align:center;">
-No
-</td>
+<tr class="even">
+<td align="right">county = 2</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-age &gt;= 21
-</td>
-<td style="text-align:center;">
-No
-</td>
-<td style="text-align:center;">
-Yes
-</td>
-<td style="text-align:center;">
-Yes
-</td>
+<tr class="odd">
+<td align="right">age &lt; 21</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="center">No</td>
+</tr>
+<tr class="even">
+<td align="right">age &gt;= 21</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="the-above-table-shows-the-answers-to-the-research-questions-when-filters-have-been-applied" class="section level3">
-<h3>The above table shows the answers to the research questions when filters have been applied</h3>
+<div id="the-table-shows-that-the-answer-to-research-question-is-no-irrespective-of-the-filter-applied.-it-also-shows-that-the-answers-are-the-same-for-the-total-sample-and-females.-where-is-gets-more-interesting-is-when-we-start-filtering-for-race-and-counties." class="section level3">
+<h3>The table shows that the answer to research question is no irrespective of the filter applied. It also shows that the answers are the same for the total sample and females. Where is gets more interesting is when we start filtering for race and counties.</h3>
 </div>
+<div id="for-the-county-1-it-looks-as-if-sending-info-message-or-norms-message-does-not-singificantly-influence-applicants." class="section level3">
+<h3>For the county 1 it looks as if sending info message or norms message does not singificantly influence applicants.</h3>
+<pre class="r"><code>#table where different groups of races are examined.
+columns = c(&#39;groups&#39;,&#39;race = 1&#39;,&#39;race&gt; 1&#39;)
+R1 = c(&#39;control applied&#39;, 1573, 15)
+R2 = c(&#39;total control&#39;, 10661, 10101)
+R3 = c(&#39;info applied&#39;, 1632, 20)
+R4 = c(&#39;total info&#39;, 10661, 10153)
+R5 = c(&#39;norms applied&#39;,1727, 24 )
+R6 = c(&#39;total norms&#39;, 10597, 1001 )
+
+table &lt;- as.data.frame(rbind(R1, R2, R3, R4, R5, R6), stringsAsFactors = FALSE)
+names(table) &lt;- columns
+knitr::kable(table, align=&quot;lrr&quot;, caption = &quot;Number of applicants and total numbers&quot;, row.names = FALSE, format = &quot;pipe&quot;)</code></pre>
+<table>
+<caption>Number of applicants and total numbers</caption>
+<thead>
+<tr class="header">
+<th align="left">groups</th>
+<th align="right">race = 1</th>
+<th align="right">race&gt; 1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">control applied</td>
+<td align="right">1573</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">total control</td>
+<td align="right">10661</td>
+<td align="right">10101</td>
+</tr>
+<tr class="odd">
+<td align="left">info applied</td>
+<td align="right">1632</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">total info</td>
+<td align="right">10661</td>
+<td align="right">10153</td>
+</tr>
+<tr class="odd">
+<td align="left">norms applied</td>
+<td align="right">1727</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">total norms</td>
+<td align="right">10597</td>
+<td align="right">1001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="in-the-table-above-results-for-different-race-groups-is-examined-further.-interestingly-it-seems-as-if-only-applicants-of-race-1-did-apply-for-the-program.-other-races-race-1-barely-applied-for-the-program-at-all." class="section level3">
+<h3>In the table above results for different race groups is examined further. Interestingly, it seems as if only applicants of race = 1 did apply for the program. Other races (race &gt;1) barely applied for the program at all.</h3>
 </div>
 
 
