@@ -82,7 +82,7 @@ County_2_data_reformatted <-
                               male == 0 ~ 1))  %>% 
     dplyr:: select(c(1,4,3, 7,6)) 
 
-    knitr::kable(head(County_2_data_reformatted,10), format = "pipe")
+    knitr::kable(head(County_2_data_reformatted,10), align = "ccccc",format = "pipe")
 ```
 
 ```{r}
@@ -97,7 +97,7 @@ Experiment_data_merged <-
     mutate(race = coalesce (race.x, race.y)) %>% 
     dplyr::select(c(1:2, 15:17,3:8))
 
-    knitr::kable(head(Experiment_data_merged, 10),format = "pipe")
+    knitr::kable(head(Experiment_data_merged, 10),align = "cccccccccccc", format = "pipe")
 ```
 
 ### I have designed a proportions test to test if there is a significant difference in sending out different messages.
@@ -108,7 +108,7 @@ Experiment_data_merged <-
 summary_table <-
   Experiment_data_merged %>% 
     #filter(female == 1) %>%
-    filter(race == 1) %>% 
+    # filter(race == 1) %>% 
     #filter(county == 2) %>% 
     #filter (age>=21) %>% 
     mutate(group = case_when(applied == 1 ~ "applied",
@@ -116,7 +116,7 @@ summary_table <-
     group_by(group,control_condition, info_condition, norms_condition) %>% 
     summarise(n())
 
-knitr::kable(summary_table)
+knitr::kable(summary_table, align = "lcccc")
 
 # proportional test prepared
 control_applied <- as.numeric(summary_table[1,5])
