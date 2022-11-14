@@ -670,14 +670,14 @@ result</code></pre>
 <pre class="r"><code>n_norm</code></pre>
 <pre><code>## [1] 20923</code></pre>
 </div>
-<div id="the-results-from-the-first-test-show-that-the-null-hypotheses-is-accepted-as-p-value-0.05.-the-first-test-shows-that-it-there-is-not-a-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-informational-message-at-5-significance-level.-therefore-the-answer-to-research-question-1-is-no-more-students-do-not-apply-if-the-get-the-informational-message." class="section level3">
-<h3>The results from the first test show that the null hypotheses is accepted as p-value &gt; 0.05. The first test shows that it there is <em>not</em> a significant difference in proportion of applications from individuals in the control group and the group that got informational message at 5% significance level. Therefore the answer to research question 1 is no, more students do not apply if the get the informational message.</h3>
+<div id="the-results-from-the-first-test-show-that-the-null-hypotheses-is-accepted-as-p-value-0.05.-the-first-test-shows-that-it-there-is-not-a-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-informational-message-at-95-significance-level.-therefore-the-answer-to-research-question-1-is-no-more-students-do-not-apply-if-the-get-the-informational-message." class="section level3">
+<h3>The results from the first test show that the null hypotheses is accepted as p-value &gt; 0.05. The first test shows that it there is <em>not</em> a significant difference in proportion of applications from individuals in the control group and the group that got informational message at 95% significance level. Therefore the answer to research question 1 is no, more students do not apply if the get the informational message.</h3>
 </div>
-<div id="the-results-from-the-second-test-show-that-the-null-hypothesis-is-rejected-as-p-value-0.05.-there-is-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-social-norms-message-emails-at-5-significance-level.-therefore-the-answer-to-research-question-2-is-yes-more-students-apply-if-the-get-the-social-norms-message.-in-fact-we-could-have-tested-this-at-99-level-i.e.-.01-and-would-have-gotten-the-same-message." class="section level3">
-<h3>The results from the second test show that the null hypothesis is rejected as p-value &lt; 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 5% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. $= .01 and would have gotten the same message.</h3>
+<div id="the-results-from-the-second-test-show-that-the-null-hypothesis-is-rejected-as-p-value-0.05.-there-is-significant-difference-in-proportion-of-applications-from-individuals-in-the-control-group-and-the-group-that-got-social-norms-message-emails-at-95-significance-level.-therefore-the-answer-to-research-question-2-is-yes-more-students-apply-if-the-get-the-social-norms-message.-in-fact-we-could-have-tested-this-at-99-level-i.e.-alpha-.01-and-would-have-gotten-the-same-message." class="section level3">
+<h3>The results from the second test show that the null hypothesis is rejected as p-value &lt; 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 95% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. <span class="math inline">\(\alpha\)</span> = .01 and would have gotten the same message.</h3>
 </div>
-<div id="the-results-from-the-third-test-show-that-the-null-hypothesis-is-rejected-as-the-p-value-0.05.-there-is-significance-difference-in-the-proportions-of-applications-from-individuals-that-got-the-informational-message-and-the-social-norms-message-at-5-significance-level.-therefore-the-answer-to-research-question-3-is-yes-more-students-apply-if-they-get-the-social-norms-message-than-students-that-get-the-informational-message." class="section level3">
-<h3>The results from the third test show that the null hypothesis is rejected as the p-value &lt; 0.05. There is significance difference in the proportions of applications from individuals that got the informational message and the social norms message at 5% significance level. Therefore the answer to research question 3 is yes, more students apply if they get the social norms message than students that get the informational message.</h3>
+<div id="the-results-from-the-third-test-show-that-the-null-hypothesis-is-rejected-as-the-p-value-0.05.-there-is-significance-difference-in-the-proportions-of-applications-from-individuals-that-got-the-informational-message-and-the-social-norms-message-at-95-significance-level.-therefore-the-answer-to-research-question-3-is-yes-more-students-apply-if-they-get-the-social-norms-message-than-students-that-get-the-informational-message." class="section level3">
+<h3>The results from the third test show that the null hypothesis is rejected as the p-value &lt; 0.05. There is significance difference in the proportions of applications from individuals that got the informational message and the social norms message at 95% significance level. Therefore the answer to research question 3 is yes, more students apply if they get the social norms message than students that get the informational message.</h3>
 <pre class="r"><code># table with answers to research questions when different filters have been applied.
 columns = c(&#39;filter&#39;,&#39;question 1&#39;, &#39;question 2&#39;, &#39;question 3&#39;)
 R1 = c(&#39;female = 1&#39;, &#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39;)
@@ -740,11 +740,11 @@ knitr::kable(table, align=&quot;rccc&quot;, caption = &quot;Numbers for differen
 </tbody>
 </table>
 </div>
-<div id="the-table-shows-that-the-answer-to-research-question-is-no-irrespective-of-the-filter-applied.-it-also-shows-that-the-answers-are-the-same-for-the-total-sample-and-females.-where-is-gets-more-interesting-is-when-we-start-filtering-for-race-and-counties." class="section level3">
-<h3>The table shows that the answer to research question is no irrespective of the filter applied. It also shows that the answers are the same for the total sample and females. Where is gets more interesting is when we start filtering for race and counties.</h3>
+<div id="the-table-shows-that-the-answer-to-research-question-1-is-no-irrespective-of-the-filter-applied.-it-also-shows-that-the-answers-are-the-same-for-the-total-sample-and-females.-where-is-gets-more-interesting-is-when-we-start-filtering-for-race-and-counties." class="section level3">
+<h3>The table shows that the answer to research question 1 is “No” irrespective of the filter applied. It also shows that the answers are the same for the total sample and females. Where is gets more interesting is when we start filtering for race and counties.</h3>
 </div>
-<div id="for-the-county-1-it-looks-as-if-sending-info-message-or-norms-message-does-not-singificantly-influence-applicants." class="section level3">
-<h3>For the county 1 it looks as if sending info message or norms message does not singificantly influence applicants.</h3>
+<div id="for-county-1-it-looks-as-if-sending-info-message-or-norms-message-does-not-singificantly-influence-applicants." class="section level3">
+<h3>For county 1 it looks as if sending info message or norms message does not singificantly influence applicants.</h3>
 <pre class="r"><code>#table where different groups of races are examined.
 columns = c(&#39;groups&#39;,&#39;race = 1&#39;,&#39;race&gt; 1&#39;)
 R1 = c(&#39;control applied&#39;, 1573, 15)
@@ -752,7 +752,7 @@ R2 = c(&#39;total control&#39;, 10661, 10101)
 R3 = c(&#39;info applied&#39;, 1632, 20)
 R4 = c(&#39;total info&#39;, 10661, 10153)
 R5 = c(&#39;norms applied&#39;,1727, 24 )
-R6 = c(&#39;total norms&#39;, 10597, 1001 )
+R6 = c(&#39;total norms&#39;, 10597, 10001 )
 
 table &lt;- as.data.frame(rbind(R1, R2, R3, R4, R5, R6), stringsAsFactors = FALSE)
 names(table) &lt;- columns
@@ -795,7 +795,7 @@ knitr::kable(table, align=&quot;lrr&quot;, caption = &quot;Number of applicants 
 <tr class="even">
 <td align="left">total norms</td>
 <td align="right">10597</td>
-<td align="right">1001</td>
+<td align="right">10001</td>
 </tr>
 </tbody>
 </table>

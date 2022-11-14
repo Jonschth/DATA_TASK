@@ -155,11 +155,11 @@ n_control
 n_info
 n_norm
 ```
-### The results from the first test show that the null hypotheses is accepted as p-value > 0.05. The first test shows that it there is *not* a significant difference in proportion of applications from individuals in the control group and the group that got informational message at 5% significance level. Therefore the answer to research question 1 is no, more students do not apply if the get the informational message. 
+### The results from the first test show that the null hypotheses is accepted as p-value > 0.05. The first test shows that it there is *not* a significant difference in proportion of applications from individuals in the control group and the group that got informational message at 95% significance level. Therefore the answer to research question 1 is no, more students do not apply if the get the informational message. 
 
-### The results from the second test show that the null hypothesis is rejected as p-value < 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 5% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. $\alpha = .01 and would have gotten the same message.
+### The results from the second test show that the null hypothesis is rejected as p-value < 0.05. There is significant difference in proportion of applications from individuals in the control group and the group that got social norms message emails at 95% significance level. Therefore the answer to research question 2 is yes, more students apply if the get the social norms message. In fact we could have tested this at 99% level, i.e. $\alpha$ = .01 and would have gotten the same message.
 
-### The results from the third test show that the null hypothesis is rejected as the p-value < 0.05. There is significance difference in the proportions of applications from individuals that got the informational message and the social norms message at 5% significance level. Therefore the answer to research question 3 is yes, more students apply if they get the social norms message than students that get the informational message.
+### The results from the third test show that the null hypothesis is rejected as the p-value < 0.05. There is significance difference in the proportions of applications from individuals that got the informational message and the social norms message at 95% significance level. Therefore the answer to research question 3 is yes, more students apply if they get the social norms message than students that get the informational message.
 
 ```{r}
 # table with answers to research questions when different filters have been applied.
@@ -176,9 +176,9 @@ names(table) <- columns
 knitr::kable(table, align="rccc", caption = "Numbers for different races", row.names = FALSE, format = "pipe")
 ```
 
-### The table shows that the answer to research question is no irrespective of the filter applied. It also shows that the answers are the same for the total sample and females. Where is gets more interesting is when we start filtering for race and counties. 
+### The table shows that the answer to research question 1 is "No" irrespective of the filter applied. It also shows that the answers are the same for the total sample and females. Where is gets more interesting is when we start filtering for race and counties. 
 
-### For the county 1 it looks as if sending info message or norms message does not singificantly influence applicants. 
+### For county 1 it looks as if sending info message or norms message does not singificantly influence applicants. 
 
 ```{r}
 #table where different groups of races are examined.
@@ -188,7 +188,7 @@ R2 = c('total control', 10661, 10101)
 R3 = c('info applied', 1632, 20)
 R4 = c('total info', 10661, 10153)
 R5 = c('norms applied',1727, 24 )
-R6 = c('total norms', 10597, 1001 )
+R6 = c('total norms', 10597, 10001 )
 
 table <- as.data.frame(rbind(R1, R2, R3, R4, R5, R6), stringsAsFactors = FALSE)
 names(table) <- columns
